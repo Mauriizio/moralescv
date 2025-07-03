@@ -162,7 +162,7 @@ export default function Curriculo() {
 
         {/* Formulario de contacto */}
         <form
-  action="https://formsubmit.co/g.pabon@alumnos.santotomas.cl"
+  action="https://formsubmit.co/dacorpa03@gmail.com"
   method="POST"
   className="grid grid-cols-1 gap-4"
 >
