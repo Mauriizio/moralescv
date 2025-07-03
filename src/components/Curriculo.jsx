@@ -161,40 +161,53 @@ export default function Curriculo() {
         </section>
 
         {/* Formulario de contacto */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Contáctame</h2>
-          <form
-            action="mailto:g.pabon@alumnos.santotomas.cl"
-            method="POST"
-            encType="text/plain"
-            className="grid grid-cols-1 gap-4"
-          >
-            <input
-              type="text"
-              name="Nombre"
-              placeholder="Tu nombre"
-              className="w-full border rounded-md px-3 py-2 text-sm"
-            />
-            <input
-              type="email"
-              name="Correo"
-              placeholder="Tu correo electrónico"
-              className="w-full border rounded-md px-3 py-2 text-sm"
-            />
-            <textarea
-              name="Mensaje"
-              placeholder="Escribe tu mensaje"
-              rows="4"
-              className="w-full border rounded-md px-3 py-2 text-sm"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-rose-600 text-white px-4 py-2 rounded-md hover:bg-rose-700"
-            >
-              Enviar mensaje
-            </button>
-          </form>
-        </section>
+        <form
+  action="https://formsubmit.co/g.pabon@alumnos.santotomas.cl"
+  method="POST"
+  className="grid grid-cols-1 gap-4"
+>
+  <input
+    type="hidden"
+    name="_subject"
+    value="Mensaje desde CV Gladys Pabón"
+  />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
+  <input
+    type="hidden"
+    name="_next"
+    value="https://www.dacorpa.online/gracias.html"
+  />
+
+  <input
+    type="text"
+    name="Nombre"
+    placeholder="Tu nombre"
+    required
+    className="w-full border rounded-md px-3 py-2 text-sm"
+  />
+  <input
+    type="email"
+    name="Correo"
+    placeholder="Tu correo electrónico"
+    required
+    className="w-full border rounded-md px-3 py-2 text-sm"
+  />
+  <textarea
+    name="Mensaje"
+    placeholder="Escribe tu mensaje"
+    rows="4"
+    required
+    className="w-full border rounded-md px-3 py-2 text-sm"
+  ></textarea>
+  <button
+    type="submit"
+    className="bg-rose-600 text-white px-4 py-2 rounded-md hover:bg-rose-700"
+  >
+    Enviar mensaje
+  </button>
+</form>
+
 
         {/* CTA */}
         <div className="text-center mt-6">
