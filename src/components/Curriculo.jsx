@@ -18,7 +18,7 @@ export default function Curriculo() {
           className="w-full h-full object-cover"
         />
         <img
-          src="/public/logo-st.png"
+          src="/logo-st.png"
           alt="Logo Universidad"
           className="absolute top-4 left-4 w-24 h-24 object-contain z-10"
         />
