@@ -65,7 +65,7 @@ export default function Curriculo() {
       </div>
 
       {/* Contenedor principal */}
-      <div className="mt-8 w-full max-w-3xl bg-white shadow-lg rounded-2xl p-6 space-y-8">
+      <div className="mt-8 w-full max-w-3xl bg-white shadow-lg rounded-2xl p-6 pb-2 space-y-8">
         {/* Perfil profesional */}
         <section>
           <h2 className="text-xl font-medium text-rose-700 mb-2">Perfil profesional</h2>
@@ -150,17 +150,21 @@ export default function Curriculo() {
         </section>
 
         {/* Formulario de contacto */}
-        <section className="bg-white border border-rose-200 rounded-lg p-6 shadow-md">
+        <section className="bg-white border border-rose-200 rounded-lg p-6  shadow-md">
           <h2 className="text-xl font-medium text-rose-700 mb-4">Contacto</h2>
           <p className="text-gray-600 text-sm md:text-base mb-4">
             ¿Interesado en colaborar o conocer más sobre mi experiencia? ¡Escríbeme!
           </p>
           
+
           <form 
-            action="https://formspree.io/f/xdkogpvw" 
-            method="POST"
-            className="space-y-4"
+           action="https://api.web3forms.com/submit" 
+  method="POST"
+  className="space-y-4"
           >
+
+            <input type="hidden" name="access_key" value="87f0389d-cb3d-4c58-a53d-4151ae29bb44" />
+  <input type="hidden" name="redirect" value="https://www.dacorpa.online/gracias.html" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
@@ -237,7 +241,10 @@ export default function Curriculo() {
               </span>
             </div>
           </form>
+                
         </section>
+        
+          <h2 className="  text-xs font-medium text-black mb-2">Hecho con <span className="text-rose-700">❤</span>  por Maurizio Caballero</h2>
       </div>
     </div>
   )
