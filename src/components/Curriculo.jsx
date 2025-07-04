@@ -1,7 +1,7 @@
-import { Linkedin } from 'lucide-react'
+import { Linkedin, Download} from 'lucide-react'
 
 export default function Curriculo() {
-  // URLs directas - REEMPLAZA con tus URLs de Imgur
+  // URLs directas - REEMPLAZA con tus URLs de ImgurCurrículum
   const portadaImg = "https://i.imgur.com/WIFfJyW.jpeg"
   const logoImg = "https://i.imgur.com/JZyF3UM.png"
   const perfilImg = "https://i.imgur.com/8f7nDzI.jpeg"
@@ -59,8 +59,10 @@ export default function Curriculo() {
         >
           <Linkedin size={20} /> LinkedIn
         </a>
-        <a href="/curriculo-gladys.pdf" className="text-rose-600 hover:underline" download>
-          Descargar Curriculo PDF
+
+
+        <a href="/curriculo-gladys.pdf" className="flex items-center gap-1 text-rose-600 hover:underline" download>
+          <Download size={20} /> Currículum PDF
         </a>
       </div>
 
