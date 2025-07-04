@@ -1,15 +1,15 @@
-import { Linkedin } from "lucide-react"
-
-// Importar todas las imágenes
-import portadaImg from "https://i.postimg.cc/QtdTCCVQ/portada.jpg"
-import logoImg from "../assets/images/logo-st.png"
-import perfilImg from "../assets/images/perfil3.jpg"
-import antuco5Img from "../assets/images/antuco5.jpg"
-import terrenoAntucoImg from "../assets/images/terreno-antuco.jpg"
-import antuco3Img from "../assets/images/antuco3.jpg"
-import antuco2Img from "../assets/images/antuco2.jpg"
+import { Linkedin } from 'lucide-react'
 
 export default function Curriculo() {
+  // URLs directas - REEMPLAZA con tus URLs de Imgur
+  const portadaImg = "https://i.imgur.com/WIFfJyW.jpeg"
+  const logoImg = "https://i.imgur.com/TU-URL-AQUI.png"
+  const perfilImg = "https://i.imgur.com/TU-URL-AQUI.jpg"
+  const antuco5Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
+  const terrenoAntucoImg = "https://i.imgur.com/TU-URL-AQUI.jpg"
+  const antuco3Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
+  const antuco2Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white flex flex-col items-center font-['Poppins',sans-serif]">
       {/* Google Font */}
@@ -147,6 +147,96 @@ export default function Curriculo() {
         <section>
           <h2 className="text-xl font-medium text-rose-700 mb-2">Idiomas</h2>
           <p className="text-gray-700 text-sm md:text-base">Inglés: Nivel intermedio</p>
+        </section>
+
+        {/* Formulario de contacto */}
+        <section className="bg-white border border-rose-200 rounded-lg p-6 shadow-md">
+          <h2 className="text-xl font-medium text-rose-700 mb-4">Contacto</h2>
+          <p className="text-gray-600 text-sm md:text-base mb-4">
+            ¿Interesado en colaborar o conocer más sobre mi experiencia? ¡Escríbeme!
+          </p>
+          
+          <form 
+            action="https://formspree.io/f/xdkogpvw" 
+            method="POST"
+            className="space-y-4"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
+                  Nombre *
+                </label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                  placeholder="tu@email.com"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label htmlFor="asunto" className="block text-sm font-medium text-gray-700 mb-1">
+                Asunto
+              </label>
+              <input
+                type="text"
+                id="asunto"
+                name="asunto"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                placeholder="Motivo del contacto"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-1">
+                Mensaje *
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm resize-vertical"
+                placeholder="Escribe tu mensaje aquí..."
+              ></textarea>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-3 items-center">
+              <button
+                type="submit"
+                className="w-full sm:w-auto bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-6 rounded-md transition-colors duration-200 text-sm"
+              >
+                Enviar mensaje
+              </button>
+              
+              <span className="text-gray-500 text-xs">
+                o escríbeme directamente a{' '}
+                <a 
+                  href="mailto:g.pabon@alumnos.santotomas.cl" 
+                  className="text-rose-600 hover:underline"
+                >
+                  g.pabon@alumnos.santotomas.cl
+                </a>
+              </span>
+            </div>
+          </form>
         </section>
       </div>
     </div>
