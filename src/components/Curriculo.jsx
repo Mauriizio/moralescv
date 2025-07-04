@@ -60,7 +60,7 @@ export default function Curriculo() {
           <Linkedin size={20} /> LinkedIn
         </a>
         <a href="/curriculo-gladys.pdf" className="text-rose-600 hover:underline" download>
-          Descargar PDF
+          Descargar Curriculo PDF
         </a>
       </div>
 
