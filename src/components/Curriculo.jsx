@@ -1,7 +1,7 @@
 import { Linkedin } from "lucide-react"
 
 // Importar todas las imágenes
-import portadaImg from "https://i.imgur.com/WIFfJyW.jpeg"
+import portadaImg from "https://i.postimg.cc/QtdTCCVQ/portada.jpg"
 import logoImg from "../assets/images/logo-st.png"
 import perfilImg from "../assets/images/perfil3.jpg"
 import antuco5Img from "../assets/images/antuco5.jpg"
