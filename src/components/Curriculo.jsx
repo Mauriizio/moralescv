@@ -3,12 +3,12 @@ import { Linkedin } from 'lucide-react'
 export default function Curriculo() {
   // URLs directas - REEMPLAZA con tus URLs de Imgur
   const portadaImg = "https://i.imgur.com/WIFfJyW.jpeg"
-  const logoImg = "https://i.imgur.com/TU-URL-AQUI.png"
-  const perfilImg = "https://i.imgur.com/TU-URL-AQUI.jpg"
-  const antuco5Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
-  const terrenoAntucoImg = "https://i.imgur.com/TU-URL-AQUI.jpg"
-  const antuco3Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
-  const antuco2Img = "https://i.imgur.com/TU-URL-AQUI.jpg"
+  const logoImg = "https://i.imgur.com/JZyF3UM.png"
+  const perfilImg = "https://i.imgur.com/8f7nDzI.jpeg"
+  const antuco5Img = "https://i.imgur.com/1EuPfGG.jpeg"
+  const terrenoAntucoImg = "https://i.imgur.com/l3Nl4EA.jpeg"
+  const antuco3Img = "https://i.imgur.com/QUDlLhq.jpeg"
+  const antuco2Img = "https://i.imgur.com/uz6PxHc.jpeg"
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white flex flex-col items-center font-['Poppins',sans-serif]">
