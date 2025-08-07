@@ -120,7 +120,7 @@ export default function Curriculo() {
             // Usa la URL externalizada aquí
             src={portadaImg || "/placeholder.svg?height=300&width=1200&query=Abstract purple background"}
             alt="Portada CV"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2A2438] to-transparent"></div>
         </div>
@@ -141,7 +141,7 @@ export default function Curriculo() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-white">
             Paola Valentina Morales Orozco
           </h1>
-          <p className="text-xl md:text-2xl font-light text-gray-200 mb-2">
+          <p className="text-xl md:text-2xl font-light text-white mb-2">
             Ingeniera en Procesos Químicos
           </p>
           <p className="text-lg md:text-xl text-[#C084FC] font-medium flex items-center gap-2 mb-6">
@@ -165,7 +165,7 @@ export default function Curriculo() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#C084FC] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#C084FC] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 "
               target="_blank"
               rel="noreferrer"
             >
@@ -176,7 +176,7 @@ export default function Curriculo() {
               className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#C084FC] text-[#C084FC] font-semibold hover:bg-[#C084FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               download
             >
-              <Download size={20} /> Descargar PDF
+              <Download size={20} /> Curriculum PDF
             </a>
           </div>
         </div>
