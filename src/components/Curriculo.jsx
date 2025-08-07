@@ -1,172 +1,293 @@
-import { Linkedin, Download} from 'lucide-react'
+import { useState } from 'react';
+import { Linkedin, Download, ChevronLeft, ChevronRight, Mail, Phone, MapPin, Award, Briefcase, Lightbulb, Wrench } from 'lucide-react'; // Añadido Wrench para habilidades técnicas
 
 export default function Curriculo() {
-  // URLs directas - REEMPLAZA con tus URLs de ImgurCurrículum
-  const portadaImg = "https://i.imgur.com/WIFfJyW.jpeg"
-  const logoImg = "https://i.imgur.com/JZyF3UM.png"
-  const perfilImg = "https://i.imgur.com/8f7nDzI.jpeg"
-  const antuco5Img = "https://i.imgur.com/1EuPfGG.jpeg"
-  const terrenoAntucoImg = "https://i.imgur.com/l3Nl4EA.jpeg"
-  const antuco3Img = "https://i.imgur.com/QUDlLhq.jpeg"
-  const antuco2Img = "https://i.imgur.com/uz6PxHc.jpeg"
+  // URLs directas - REEMPLAZA con URLs reales si tienes
+  const portadaImg = "https://i.imgur.com/WIFfJyW.jpeg"; // Imagen de fondo de la cabecera
+  const perfilImg = "/public/perfil.png"
+
+  // Datos para el carrusel de diplomas
+  const diplomas = [
+    "/public/diplomas/diploma (2).png",
+    "/public/diplomas/diploma (1).png",
+    "/public/diplomas/diploma (3).png",
+    "/public/diplomas/diploma (4).png",
+    
+   
+    // Agrega más URLs de diplomas aquí
+  ];
+
+  // Datos para las habilidades
+  const habilidadesTecnicas = [
+    "Microsoft Office Suite",
+    "Microsoft Excel Avanzado",
+    "Sistemas GxP (GMP, GLP, GCP)",
+    "Cromatografía HPLC",
+    "Validación de Procesos",
+    "Control de Calidad Farmacéutico",
+  ];
+
+  const habilidadesProfesionales = [
+    "Pensamiento Analítico",
+    "Resolución de Problemas Complejos",
+    "Liderazgo de Equipos",
+    "Comunicación Efectiva",
+    "Innovación y Creatividad",
+    "Adaptabilidad y Flexibilidad",
+    "Gestión de Proyectos",
+  ];
+
+  const [currentDiplomaIndex, setCurrentDiplomaIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState('');
+
+  const nextDiploma = () => {
+    setCurrentDiplomaIndex((prevIndex) =>
+      prevIndex === diplomas.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevDiploma = () => {
+    setCurrentDiplomaIndex((prevIndex) =>
+      prevIndex === 0 ? diplomas.length - 1 : prevIndex - 1
+    );
+  };
+
+  const openModal = (imageSrc) => {
+    setModalImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage('');
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white flex flex-col items-center font-['Poppins',sans-serif]">
-      {/* Google Font */}
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <div className="min-h-screen bg-gradient-to-br from-[#F0E6FA] to-white flex flex-col items-center font-['Montserrat',sans-serif] text-gray-800">
+      {/* Google Font - Montserrat */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
 
-      {/* Portada con logo y perfil */}
-      <div className="w-full h-60 relative">
-        <img src={portadaImg || "/placeholder.svg"} alt="Portada geológica" className="w-full h-full object-cover" />
-        <img
-          src={logoImg || "/placeholder.svg"}
-          alt="Logo Universidad"
-          className="absolute top-4 left-4 w-24 h-24 object-contain z-10"
-        />
-        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-          <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden border-4 border-white shadow-lg">
+      {/* Sección de Cabecera (Portada y Perfil) */}
+      <header className="w-full relative bg-[#2A2438] text-white min-h-[300px] md:min-h-[350px] pb-32 pt-16 md:pt-24 flex flex-col items-center justify-center overflow-hidden">
+        {/* Imagen de portada como fondo */}
+        <div className="absolute inset-0">
+          <img
+            src={portadaImg || "/placeholder.svg?height=300&width=1200&query=Abstract purple background"}
+            alt="Portada CV"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2A2438] to-transparent"></div>
+        </div>
+
+        {/* Contenido de la cabecera */}
+        <div className="relative z-10 flex flex-col items-center px-4 text-center">
+          {/* Avatar */}
+          <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl mb-6 transform transition-transform duration-300 hover:scale-105 ring-4 ring-[#8B5CF6] ring-offset-4 ring-offset-[#2A2438]">
             <img
-              src={perfilImg || "/placeholder.svg"}
-              alt="Gladys Daniela Pabón Cortés"
+              src={perfilImg || "/placeholder.svg?height=160&width=160&query=Paola Valentina Morales Orozco profile"}
+              alt="Paola Valentina Morales Orozco"
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
-      </div>
 
-      {/* Datos personales */}
-      <div className="mt-20 text-center px-4">
-        <h1 className="text-3xl md:text-4xl font-semibold text-rose-700 tracking-wide">Gladys Daniela Pabón Cortés</h1>
-        <p className="text-gray-700 text-sm md:text-base mt-1">Estudiante de Geología - 5to año</p>
-        <p className="text-gray-600 text-sm md:text-base">Universidad Santo Tomás | Santiago, Chile</p>
-      </div>
-
-      {/* Contacto básico */}
-      <div className="mt-4 text-center text-gray-500 text-sm md:text-base space-y-1">
-        <p>Rut: 25.957.134-0</p>
-        <p>Fecha de nacimiento: 4/6/1998</p>
-        <p>Correo: g.pabon@alumnos.santotomas.cl</p>
-        <p>Teléfono: +56 956864256</p>
-      </div>
-
-      {/* Enlaces */}
-      <div className="mt-4 flex flex-wrap justify-center gap-6">
-        <a
-          href="https://www.linkedin.com/in/gladys-pab%C3%B3n-cortes-95031a174/"
-          className="flex items-center gap-1 text-rose-600 hover:underline"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Linkedin size={20} /> LinkedIn
-        </a>
-
-
-        <a href="/curriculo-gladys.pdf" className="flex items-center gap-1 text-rose-600 hover:underline" download>
-          <Download size={20} /> Currículum PDF
-        </a>
-      </div>
-
-      {/* Contenedor principal */}
-      <div className="mt-8 w-full max-w-3xl bg-white shadow-lg rounded-2xl p-6 pb-2 space-y-8">
-        {/* Perfil profesional */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Perfil profesional</h2>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            Estudiante de quinto año de Geología en la Universidad Santo Tomás, con experiencia en la elaboración de
-            mapas geológicos y estudios medioambientales. Competente en QGIS y ENVI para procesar imágenes satelitales,
-            análisis hidrogeológico y un enfoque técnico-analítico.
+          {/* Datos personales */}
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-white">
+            Paola Valentina Morales Orozco
+          </h1>
+          <p className="text-xl md:text-2xl font-light text-gray-200 mb-2">
+            Ingeniera en Procesos Químicos
           </p>
-        </section>
-
-        {/* Educación */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Educación</h2>
-          <p className="text-gray-700 text-sm md:text-base">
-            Universidad Santo Tomás (Mar 2020 – Dic 2025)
-            <br />
-            Carrera de Geología
+          <p className="text-lg md:text-xl text-[#C084FC] font-medium flex items-center gap-2 mb-6">
+            <Award size={20} /> Especialista en Control de Calidad & Validación
           </p>
-        </section>
 
-        {/* Materias destacadas */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Materias destacadas</h2>
-          <ul className="text-gray-700 text-sm md:text-base list-disc list-inside space-y-1">
-            <li>Geología Estructural</li>
-            <li>Sedimentología</li>
-            <li>Geomorfología</li>
-          </ul>
-        </section>
-
-        {/* Experiencia relevante */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Experiencia relevante</h2>
-          <ul className="text-gray-700 text-sm md:text-base list-disc list-inside space-y-2">
-            <li>
-              <strong>Impacto de la minería en el río Loa (2024):</strong> Análisis hidrogeológico y estudio
-              ecosistémico.
-            </li>
-            <li>
-              <strong>Manejo de QGIS y ENVI:</strong> Creación de mapas geológicos, procesamiento de ASTER, Landsat y
-              Sentinel.
-            </li>
-          </ul>
-        </section>
-
-        {/* Experiencia de campo */}
-        <section className="bg-rose-50 border border-rose-200 rounded-lg p-4">
-          <h2 className="text-xl font-medium text-rose-700 mb-4">
-            Experiencia de campo destacada: <span className="font-semibold">Volcán Antuco</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <img
-              src={antuco5Img || "/placeholder.svg"}
-              alt="Terreno en Volcán Antuco"
-              className="col-span-1 md:col-span-3 w-full h-64 object-cover rounded-xl shadow-md"
-            />
-            <img src={terrenoAntucoImg || "/placeholder.svg"} alt="Antuco 2" className="h-64 object-cover rounded-lg" />
-            <img src={antuco3Img || "/placeholder.svg"} alt="Antuco 3" className="h-64 object-cover rounded-lg" />
-            <img src={antuco2Img || "/placeholder.svg"} alt="Antuco 4" className="h-64 object-cover rounded-lg" />
+          {/* Contacto básico */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-gray-300 text-base md:text-lg mb-8">
+            <p className="flex items-center gap-2">
+              <Mail size={18} className="text-[#C084FC]" /> paolavmoraleso@gmail.com
+            </p>
+            <p className="flex items-center gap-2">
+              <Phone size={18} className="text-[#C084FC]" /> +58 412-5194333
+            </p>
+            <p className="flex items-center gap-2">
+              <MapPin size={18} className="text-[#C084FC]" /> San Felipe, Yaracuy. Venezuela
+            </p>
           </div>
-          <p className="mt-3 italic text-gray-600 text-sm md:text-base">
-            "Muestreo de depósitos, granulometría y conteo litológico en terreno volcánico, aplicando teoría y
-            fortaleciendo mi vocación geológica."
-          </p>
+
+          {/* Enlaces */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#C084FC] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin size={20} /> LinkedIn
+            </a>
+            <a
+              href="/curriculo-paola.pdf"
+              className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#C084FC] text-[#C084FC] font-semibold hover:bg-[#C084FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+              download
+            >
+              <Download size={20} /> Descargar PDF
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Contenedor principal de secciones */}
+      <main className="w-full max-w-4xl mt-16 px-4 md:px-8 space-y-8 md:space-y-10 z-20">
+        {/* Formación Académica */}
+        <section className="space-y-4">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-6 text-center">Formación Académica</h2>
+          {/* Tarjeta 1: Ingeniería */}
+          <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Ingeniería en Procesos Químicos</h3>
+              <p className="text-[#8B5CF6] text-base mt-1">Universidad Politécnica Territorial de Yaracuy "Arístides Bastidas"</p>
+              <p className="text-gray-600 text-sm mt-1">PNF en Procesos Químicos - Especialización en Control de Calidad y Validación</p>
+            </div>
+            <span className="mt-3 md:mt-0 px-4 py-1 bg-[#E9D5FF] text-[#8B5CF6] text-xs font-medium rounded-full">2022 - 2024</span>
+          </div>
+
+          {/* Tarjeta 2: TSU */}
+          <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">TSU en Procesos Químicos</h3>
+              <p className="text-[#8B5CF6] text-base mt-1">Universidad Politécnica Territorial de Yaracuy "Arístides Bastidas"</p>
+              <p className="text-gray-600 text-sm mt-1">Técnico Superior Universitario con enfoque en análisis químico</p>
+            </div>
+            <span className="mt-3 md:mt-0 px-4 py-1 bg-[#E9D5FF] text-[#8B5CF6] text-xs font-medium rounded-full">2019 - 2022</span>
+          </div>
+
+          {/* Tarjeta 3: Bachiller */}
+          <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Bachiller en Ciencias</h3>
+              <p className="text-[#8B5CF6] text-base mt-1">U.E "Arístides Rojas"</p>
+              <p className="text-gray-600 text-sm mt-1">Educación Media con mención en Ciencias</p>
+            </div>
+            <span className="mt-3 md:mt-0 px-4 py-1 bg-[#E9D5FF] text-[#8B5CF6] text-xs font-medium rounded-full">2014 - 2019</span>
+          </div>
         </section>
 
-        {/* Habilidades técnicas */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Habilidades técnicas</h2>
-          <ul className="text-gray-700 text-sm md:text-base list-disc list-inside space-y-1">
-            <li>Mapas geológicos en QGIS</li>
-            <li>Análisis multiespectral en ENVI</li>
-            <li>Modelado DEM y análisis de cuencas</li>
-            <li>NDVI para monitoreo ambiental</li>
+        {/* Cursos Realizados */}
+        <section className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-4">Cursos Realizados</h2>
+          <ul className="text-gray-700 text-base list-disc list-inside space-y-2">
+            <li>Formulación y evaluación de proyectos socio productivos (Fundacite Yaracuy, 2022)</li>
+            <li>Buenas prácticas de manufactura (Laboratorio Pifano, C.A., 2023)</li>
+            <li>Microsoft Excel (CUAM- Academia Valencia, 2024)</li>
+            <li>Escuela Básica de Cromatografía Líquida de Alta Eficiencia HPLC (Grupo Intelcon P26, 2025)</li>
+            <li>Escuela Intermedia de Cromatografía Líquida de Alta Eficiencia HPLC (Grupo Intelcon P26, 2025)</li>
           </ul>
         </section>
 
-        {/* Idiomas */}
-        <section>
-          <h2 className="text-xl font-medium text-rose-700 mb-2">Idiomas</h2>
-          <p className="text-gray-700 text-sm md:text-base">Inglés: Nivel intermedio</p>
+        {/* Carrusel de Diplomas */}
+        <section className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-6 text-center">Mis Diplomas</h2>
+          <div className="relative w-full max-w-xl mx-auto bg-gray-50 rounded-lg shadow-inner p-4">
+            <img
+              src={diplomas[currentDiplomaIndex] || "/placeholder.svg?height=400&width=600&query=Diploma certificate"}
+              alt={`Diploma ${currentDiplomaIndex + 1}`}
+              className="w-full h-auto object-contain rounded-md shadow-md cursor-pointer transition-opacity duration-300 ease-in-out"
+              style={{ aspectRatio: '4/3' }}
+              onClick={() => openModal(diplomas[currentDiplomaIndex])}
+            />
+            <button
+              onClick={prevDiploma}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+              aria-label="Diploma anterior"
+            >
+              <ChevronLeft size={24} className="text-[#8B5CF6]" />
+            </button>
+            <button
+              onClick={nextDiploma}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+              aria-label="Siguiente diploma"
+            >
+              <ChevronRight size={24} className="text-[#8B5CF6]" />
+            </button>
+            <div className="text-center text-sm text-gray-600 mt-3">
+              {currentDiplomaIndex + 1} / {diplomas.length}
+            </div>
+          </div>
+        </section>
+
+        {/* Experiencia Laboral */}
+        <section className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-4 flex items-center gap-2">
+            <Briefcase size={28} /> Experiencia Laboral
+          </h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-2">
+            <strong>Analista de Aseguramiento de la Calidad / Validación</strong> (Laboratorio Pifano, C.A., 2024)
+          </p>
+          <ul className="text-gray-700 text-base list-disc list-inside space-y-2">
+            <li>Manejo de la documentación legal y regulatoria, POEs, registros de control de calidad.</li>
+            <li>Detección de errores, fallas y desviaciones en estándares de calidad.</li>
+            <li>Aseguramiento del cumplimiento de estándares de calidad.</li>
+            <li>Calificación de equipos y validación de sistemas de apoyo crítico.</li>
+          </ul>
+        </section>
+
+        {/* Habilidades Destacadas */}
+        <section className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-6 flex items-center gap-2">
+            <Lightbulb size={28} /> Habilidades Destacadas
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                <Wrench size={20} className="text-[#8B5CF6]" /> Habilidades Técnicas
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {habilidadesTecnicas.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-full bg-gradient-to-r from-[#C084FC] to-[#8B5CF6] text-white text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                <Award size={20} className="text-[#8B5CF6]" /> Habilidades Profesionales
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {habilidadesProfesionales.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-full bg-gradient-to-r from-[#C084FC] to-[#8B5CF6] text-white text-sm font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Formulario de contacto */}
-        <section className="bg-white border border-rose-200 rounded-lg p-6  shadow-md">
-          <h2 className="text-xl font-medium text-rose-700 mb-4">Contacto</h2>
-          <p className="text-gray-600 text-sm md:text-base mb-4">
+        <section className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <h2 className="text-3xl font-bold text-[#8B5CF6] mb-4">Contacto</h2>
+          <p className="text-gray-600 text-base mb-6">
             ¿Interesado en colaborar o conocer más sobre mi experiencia? ¡Escríbeme!
           </p>
-          
-
-          <form 
-           action="https://api.web3forms.com/submit" 
-  method="POST"
-  className="space-y-4"
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="space-y-4"
           >
-
             <input type="hidden" name="access_key" value="87f0389d-cb3d-4c58-a53d-4151ae29bb44" />
-  <input type="hidden" name="redirect" value="https://www.dacorpa.online/gracias.html" />
+            <input type="hidden" name="redirect" value="https://www.paolamorales.online/gracias.html" />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
@@ -177,11 +298,11 @@ export default function Curriculo() {
                   id="nombre"
                   name="nombre"
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] focus:border-[#8B5CF6] text-sm"
                   placeholder="Tu nombre completo"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email *
@@ -191,12 +312,12 @@ export default function Curriculo() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] focus:border-[#8B5CF6] text-sm"
                   placeholder="tu@email.com"
                 />
               </div>
             </div>
-            
+
             <div>
               <label htmlFor="asunto" className="block text-sm font-medium text-gray-700 mb-1">
                 Asunto
@@ -205,11 +326,11 @@ export default function Curriculo() {
                 type="text"
                 id="asunto"
                 name="asunto"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] focus:border-[#8B5CF6] text-sm"
                 placeholder="Motivo del contacto"
               />
             </div>
-            
+
             <div>
               <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-1">
                 Mensaje *
@@ -219,35 +340,57 @@ export default function Curriculo() {
                 name="mensaje"
                 rows="4"
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-sm resize-vertical"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] focus:border-[#8B5CF6] text-sm resize-vertical"
                 placeholder="Escribe tu mensaje aquí..."
               ></textarea>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3 items-center">
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-6 rounded-md transition-colors duration-200 text-sm"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#8B5CF6] to-[#C084FC] hover:from-[#C084FC] hover:to-[#8B5CF6] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
               >
                 Enviar mensaje
               </button>
-              
-              <span className="text-gray-500 text-xs">
+
+              <span className="text-gray-500 text-sm">
                 o escríbeme directamente a{' '}
-                <a 
-                  href="mailto:g.pabon@alumnos.santotomas.cl" 
-                  className="text-rose-600 hover:underline"
+                <a
+                  href="mailto:paolavmoraleso@gmail.com"
+                  className="text-[#8B5CF6] hover:underline"
                 >
-                  g.pabon@alumnos.santotomas.cl
+                  paolavmoraleso@gmail.com
                 </a>
               </span>
             </div>
           </form>
-                
         </section>
-        
-          <h2 className="  text-xs font-medium text-black mb-2">Hecho con <span className="text-rose-700">❤</span>  por Maurizio Caballero</h2>
-      </div>
+
+        <footer className="text-center pt-8 pb-12">
+          <p className="text-sm font-medium text-gray-600">
+            Hecho con <span className="text-[#8B5CF6]">❤</span> por Maurizio Caballero
+          </p>
+        </footer>
+      </main>
+
+      {/* Modal para ver diplomas en grande */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative bg-white p-4 rounded-lg shadow-xl max-w-3xl max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors duration-200 text-gray-600"
+              aria-label="Cerrar"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <img src={modalImage || "/placeholder.svg"} alt="Diploma en grande" className="w-full h-auto object-contain rounded-md" />
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
