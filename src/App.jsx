@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className= "min-h-screen bg-gray-100 flex flex-col items-center px-4 py-8 font-sans">
+      <div className= "min-h-screen bg-gray-100 flex flex-col items-center px-0 py-0 font-sans overflow-x-hidden">
 
       <Curriculo/>
 
