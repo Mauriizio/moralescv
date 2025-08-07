@@ -188,13 +188,13 @@ export default function Curriculo() {
         <section className="space-y-4">
           <h2 className="text-3xl font-bold text-[#8B5CF6] mb-6 text-center">Formación Académica</h2>
           {/* Tarjeta 1: Ingeniería */}
-          <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+          <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col  md:flex-row justify-between items-start md:items-center transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
             <div>
               <h3 className="text-xl font-semibold text-gray-800">Ingeniería en Procesos Químicos</h3>
               <p className="text-[#8B5CF6] text-base mt-1">Universidad Politécnica Territorial de Yaracuy "Arístides Bastidas"</p>
               <p className="text-gray-600 text-sm mt-1">PNF en Procesos Químicos - Especialización en Control de Calidad y Validación</p>
             </div>
-            <span className="mt-3 md:mt-0 px-4 py-1 bg-[#E9D5FF] text-[#8B5CF6] text-xs font-medium rounded-full">2022 - 2024</span>
+            <span className="mt-3 md:mt-0 px-4 py-1 bg-[#E9D5FF] text-[#8B5CF6] text-xs font-medium rounded-full ">2022 - 2024</span>
           </div>
 
           {/* Tarjeta 2: TSU */}
