@@ -164,7 +164,7 @@ export default function Curriculo() {
           {/* Enlaces */}
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/paola-morales-bb1311379/"
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#C084FC] text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 "
               target="_blank"
               rel="noreferrer"
@@ -172,7 +172,7 @@ export default function Curriculo() {
               <Linkedin size={20} /> LinkedIn
             </a>
             <a
-              href="/curriculo-paola.pdf"
+              href="/paolacv.pdf"
               className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#C084FC] text-[#C084FC] font-semibold hover:bg-[#C084FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               download
             >
